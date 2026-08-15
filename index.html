@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knight's Travails | BFS Shortest Path</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+        <p class="title">Knight's Travails</p>
+        <p class="subtitle">Find the shortest knight path on an 8×8 chessboard using Breadth-First Search.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container">
+      <div class="columns is-variable is-6">
+        <div class="column is-7">
+          <div class="box">
+            <div class="level is-mobile mb-4">
+              <div>
+                <h2 class="title is-4 mb-1">Chessboard</h2>
+                <p class="is-size-7 has-text-grey">Click a square to set the start, then click another to set the destination.</p>
+              </div>
+              <button id="resetBtn" class="button is-light">Reset</button>
+            </div>
+            <div id="board" class="chessboard" aria-label="8 by 8 chessboard"></div>
+            <div class="legend mt-4">
+              <span><i class="dot start"></i> Start</span>
+              <span><i class="dot end"></i> Destination</span>
+              <span><i class="dot path"></i> Shortest path</span>
+              <span><i class="dot visited"></i> Explored</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-5">
+          <div class="box">
+            <h2 class="title is-4">Controls</h2>
+
+            <div class="field">
+              <label class="label">Start square</label>
+              <div class="control">
+                <input id="startInput" class="input" value="[0,0]" placeholder="[x,y]">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Destination square</label>
+              <div class="control">
+                <input id="endInput" class="input" value="[7,7]" placeholder="[x,y]">
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button id="findBtn" class="button is-primary is-fullwidth">Find Shortest Path</button>
+              <button id="randomBtn" class="button is-link is-light is-fullwidth">Random Route</button>
+            </div>
+
+            <article id="status" class="message is-info">
+              <div class="message-body">Choose two squares or use the default route.</div>
+            </article>
+
+            <div id="result" class="content result-panel">
+              <p class="has-text-grey">Your shortest route will appear here.</p>
+            </div>
+          </div>
+
+          <div class="box">
+            <h3 class="title is-5">Algorithm</h3>
+            <div class="content is-small">
+              <ul>
+                <li><strong>Vertices:</strong> all 64 board squares.</li>
+                <li><strong>Edges:</strong> legal knight moves.</li>
+                <li><strong>Search:</strong> BFS guarantees the minimum number of moves in this unweighted graph.</li>
+                <li><strong>Path reconstruction:</strong> each visited square stores its predecessor.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 class="title is-4">Knight Moves API</h2>
+        <pre id="consoleOutput" class="console"></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>Knight's Travails — HTML5, CSS3, JavaScript & Bulma CSS</p>
+    </div>
+  </footer>
+
+  <script src="js/knight.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
